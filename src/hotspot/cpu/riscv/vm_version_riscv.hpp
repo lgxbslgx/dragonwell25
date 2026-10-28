@@ -276,8 +276,6 @@ class VM_Version : public Abstract_VM_Version {
   decl(Zfhmin      ,  RV_NO_FLAG_BIT,  true ,  UPDATE_DEFAULT(UseZfhmin))                                 \
   /* Zicbop Cache Block Prefetch Operations */                                                            \
   decl(Zicbop      ,  RV_NO_FLAG_BIT,  true ,  UPDATE_DEFAULT(UseZicbop))                                 \
-  /* Zicboz Cache Block Zero Operations */                                                                \
-  decl(Zicboz      ,  RV_NO_FLAG_BIT,  true ,  UPDATE_DEFAULT(UseZicboz))                                 \
   /* Ziccid Instruction/Data Coherence and Consistency */                                                 \
   decl(Ziccid      ,  RV_NO_FLAG_BIT,  true ,  UPDATE_DEFAULT(UseZiccid))                                 \
   /* Base Counters and Timers */                                                                          \
@@ -333,7 +331,6 @@ class VM_Version : public Abstract_VM_Version {
   decl(unaligned_scalar  ,  RV_NO_FLAG_BIT,  false,  NO_UPDATE_DEFAULT)                        \
   /* Performance of misaligned vector accesses (unknown, unspported, slow, fast) */            \
   decl(unaligned_vector  ,  RV_NO_FLAG_BIT,  false,  NO_UPDATE_DEFAULT)                        \
-  decl(zicboz_block_size ,  RV_NO_FLAG_BIT,  false,  NO_UPDATE_DEFAULT)                        \
 
   #define DECLARE_RV_NON_EXT_FEATURE(PRETTY, LINUX_BIT, FSTRING, FLAGF)            \
   struct PRETTY##RVNonExtFeatureValue : public RVNonExtFeatureValue {              \
@@ -435,7 +432,6 @@ private:
     RV_ENABLE_EXTENSION(UseZbs)                      \
     RV_ENABLE_EXTENSION(UseZic64b)                   \
     RV_ENABLE_EXTENSION(UseZicbop)                   \
-    RV_ENABLE_EXTENSION(UseZicboz)                   \
     RV_ENABLE_EXTENSION(UseZihintpause)              \
 
   static void useRVA22U64Profile();
@@ -453,7 +449,6 @@ private:
     RV_ENABLE_EXTENSION(UseZfhmin)                  \
     RV_ENABLE_EXTENSION(UseZic64b)                  \
     RV_ENABLE_EXTENSION(UseZicbop)                  \
-    RV_ENABLE_EXTENSION(UseZicboz)                  \
     RV_ENABLE_EXTENSION(UseZicond)                  \
     RV_ENABLE_EXTENSION(UseZihintpause)             \
     RV_ENABLE_EXTENSION(UseZvfhmin)                 \
